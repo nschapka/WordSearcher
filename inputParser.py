@@ -7,4 +7,5 @@ class inputParser:
         self.textToParse = inputReader.inputText
 
     def parseTargetWords(self):
-        self.targetWords = str.split(self.textToParse[0], ',')
+        targetWords = str.split(self.textToParse[0], ',')
+        return targetWords

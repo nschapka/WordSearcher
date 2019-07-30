@@ -51,9 +51,9 @@ class WordSearchTests(unittest.TestCase):
         testParser = inputParser()
         testParser.textToParse = ['YES,NO,MAYBE,I,DONT,KNOW']
 
-        testParser.parseTargetWords()
+        targetWords = testParser.parseTargetWords()
 
-        self.assertEqual(testParser.targetWords, ['YES', 'NO', 'MAYBE', 'I', 'DONT', 'KNOW'])
+        self.assertEqual(targetWords, ['YES', 'NO', 'MAYBE', 'I', 'DONT', 'KNOW'])
 
 
 if __name__ == '__main__':
