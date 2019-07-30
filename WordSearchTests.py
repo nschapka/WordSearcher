@@ -55,6 +55,14 @@ class WordSearchTests(unittest.TestCase):
 
         self.assertEqual(targetWords, ['YES', 'NO', 'MAYBE', 'I', 'DONT', 'KNOW'])
 
+    def testInputParserReadsGridIntoArray(self):
+        testParser = inputParser()
+        testParser.textToParse = ['can you repeat the question?', 'A,B,C', 'D,E,F', 'G,H,I']
+
+        wordSearchGrid = testParser.generateWordSearchGrid()
+
+        self.assertEqual(wordSearchGrid, [['A','B','C'], ['D','E','F'], ['G','H','I']])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -9,3 +9,7 @@ class inputParser:
     def parseTargetWords(self):
         targetWords = str.split(self.textToParse[0], ',')
         return targetWords
+
+    def generateWordSearchGrid(self):
+        wordSearchGrid = [str.split(line, ',') for line in (self.textToParse[1:])]
+        return wordSearchGrid
