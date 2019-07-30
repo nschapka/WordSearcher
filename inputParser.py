@@ -5,3 +5,6 @@ class inputParser:
 
     def getTextToParse(self, inputReader):
         self.textToParse = inputReader.inputText
+
+    def parseTargetWords(self):
+        self.targetWords = str.split(self.textToParse[0], ',')

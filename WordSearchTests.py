@@ -25,7 +25,7 @@ class WordSearchTests(unittest.TestCase):
             testReader = inputReader('C://users/nschapka/desktop/input.txt')
             fileObject = open(testReader.filePath)
             inputText  = testReader.readText(fileObject)
-            self.assertTrue(inputText)  # at this point i just want to check that there is text read - don't care if the input is valid
+            self.assertTrue(inputText)  # this test necessitates a file that isn't blank
         finally:
             fileObject.close()
 
@@ -46,6 +46,14 @@ class WordSearchTests(unittest.TestCase):
 
         finally:
             fileObject.close()
+
+    def testInputParserGetsCorrectTargetWords(self):
+        testParser = inputParser()
+        testParser.textToParse = ['YES,NO,MAYBE,I,DONT,KNOW']
+
+        testParser.parseTargetWords()
+
+        self.assertEqual(testParser.targetWords, ['YES', 'NO', 'MAYBE', 'I', 'DONT', 'KNOW'])
 
 
 if __name__ == '__main__':
