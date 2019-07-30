@@ -7,6 +7,11 @@ class WordSearchTests(unittest.TestCase):
         testReader = inputReader('C://users/nschapka/desktop/input.txt')
         self.assertEqual(testReader.filePath, 'C://users/nschapka/desktop/input.txt')
 
+    def testInputReaderFindsFile(self):
+        testReader = inputReader('C://users/nschapka/desktop/input.txt')
+        fileObject = open(testReader.filePath)
+        self.assertTrue(fileObject)
+        fileObject.close()
 
 if __name__ == '__main__':
     unittest.main()
