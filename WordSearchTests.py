@@ -78,6 +78,8 @@ class WordSearchTests(unittest.TestCase):
 
         self.assertEqual(testFinder.generateForwardHorizontal(testGrid), ['ABC', 'DEF', 'GHI'])
         self.assertEqual(testFinder.generateBackwardHorizontal(testGrid), ['CBA', 'FED', 'IHG'])
+        self.assertEqual(testFinder.generateForwardVertical(testGrid), ['ADG', 'BEH', 'CFI'])
+        self.assertEqual(testFinder.generateBackwardVertical(testGrid), ['GDA', 'HEB', 'IFC'])
 
 
 
