@@ -2,6 +2,7 @@ import unittest
 from inputReader import inputReader
 from inputParser import inputParser
 from wordFinder  import wordFinder
+from letter      import letter
 
 class WordSearchTests(unittest.TestCase):
 
@@ -63,6 +64,16 @@ class WordSearchTests(unittest.TestCase):
         wordSearchGrid = testParser.generateWordSearchGrid()
 
         self.assertEqual(wordSearchGrid, [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']])
+
+    # ------
+    # letter
+    # ------
+
+    def testLetterInit(self):
+        testLetter = letter('a', 1, 0)
+        self.assertTrue(testLetter)
+        self.assertEqual(testLetter.char, 'a')
+        self.assertEqual(testLetter.position, (1, 0))
 
     # ----------
     # wordFinder
