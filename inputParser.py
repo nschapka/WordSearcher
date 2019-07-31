@@ -1,3 +1,5 @@
+from letter import letter
+
 class inputParser:
 
     def __init__(self):
@@ -12,4 +14,5 @@ class inputParser:
 
     def generateWordSearchGrid(self):
         wordSearchGrid = [str.split(line, ',') for line in (self.textToParse[1:])]
-        return wordSearchGrid
+        size = len(self.textToParse) - 1
+        return [[letter(wordSearchGrid[x][y], x, y) for y in range(size)] for x in range(size)]

@@ -62,8 +62,11 @@ class WordSearchTests(unittest.TestCase):
         testParser.textToParse = ['can you repeat the question?', 'A,B,C', 'D,E,F', 'G,H,I']
 
         wordSearchGrid = testParser.generateWordSearchGrid()
+        gridLetters = [[letter.char for letter in row] for row in wordSearchGrid]
+        gridPositions = [[letter.position for letter in row] for row in wordSearchGrid]
 
-        self.assertEqual(wordSearchGrid, [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']])
+        self.assertEqual(gridLetters, [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']])
+        self.assertEqual(gridPositions, [[(0, 0), (0, 1), (0, 2)], [(1, 0), (1, 1), (1, 2)], [(2, 0), (2, 1), (2, 2)]])
 
     # ------
     # letter
