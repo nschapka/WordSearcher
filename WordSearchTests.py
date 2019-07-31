@@ -1,6 +1,7 @@
 import unittest
 from inputReader import inputReader
 from inputParser import inputParser
+from wordFinder  import wordFinder
 
 class WordSearchTests(unittest.TestCase):
 
@@ -61,7 +62,22 @@ class WordSearchTests(unittest.TestCase):
 
         wordSearchGrid = testParser.generateWordSearchGrid()
 
-        self.assertEqual(wordSearchGrid, [['A','B','C'], ['D','E','F'], ['G','H','I']])
+        self.assertEqual(wordSearchGrid, [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']])
+
+    # ----------
+    # wordFinder
+    # ----------
+
+    def testWordFinderInit(self):
+        testFinder = wordFinder()
+        self.assertTrue(testFinder)
+
+    def testWordFinderTestStringGeneration(self):
+        testFinder = wordFinder()
+        testGrid = [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']]
+
+        self.assertEqual(testFinder.generateForwardHorizontal(testGrid), ['ABC', 'DEF', 'GHI'])
+
 
 
 if __name__ == '__main__':
