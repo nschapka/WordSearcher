@@ -72,11 +72,12 @@ class WordSearchTests(unittest.TestCase):
         testFinder = wordFinder()
         self.assertTrue(testFinder)
 
-    def testWordFinderTestStringGeneration(self):
+    def testWordFinderTestStringsGeneration(self):
         testFinder = wordFinder()
         testGrid = [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']]
 
         self.assertEqual(testFinder.generateForwardHorizontal(testGrid), ['ABC', 'DEF', 'GHI'])
+        self.assertEqual(testFinder.generateBackwardHorizontal(testGrid), ['CBA', 'FED', 'IHG'])
 
 
 
