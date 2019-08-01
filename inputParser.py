@@ -15,4 +15,4 @@ class inputParser:
     def generateWordSearchGrid(self):
         wordSearchGrid = [str.split(line, ',') for line in (self.textToParse[1:])]
         size = len(self.textToParse) - 1
-        return [[letter(wordSearchGrid[x][y], y, x) for y in range(size)] for x in range(size)]
+        return [[letter(wordSearchGrid[y][x], x, y) for x in range(size)] for y in range(size)]
