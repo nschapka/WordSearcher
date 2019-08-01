@@ -2,6 +2,17 @@ class wordFinder:
     def __init__(self):
         pass
 
+    def generateDiagPyramid(self, size):
+        coordArr = range(size)
+        coords = []
+
+        for x in range(size)[::-1]:
+            coords.append(coordArr[x:])
+        for x in range(1, size)[::-1]:
+            coords.append(coordArr[:x])
+
+        return coords
+
     def generateForwardHorizontal(self, testGrid):
         return ["".join(row) for row in testGrid]
 
@@ -19,18 +30,7 @@ class wordFinder:
 
     def generateForwardRightDiagonal(self, testGrid):
         # forward right diagonal = top left to bottom right
-        size = len(testGrid)  # should be square
-        xCoordArr = range(size)
-        xCoords = []
-        yCoordArr = range(size)
-        yCoords = []
-        coords = []
-
-        for x in range(size)[::-1]:
-            xCoords.append(xCoordArr[x:])
-        for x in range(1, size)[::-1]:
-            xCoords.append(xCoordArr[:x])
-
+        xCoords = self.generateDiagPyramid(len(testGrid))
         yCoords = xCoords[::-1]
 
         coords = [list(zip(xCoords[n], yCoords[n])) for n in range(len(xCoords))]
