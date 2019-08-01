@@ -86,15 +86,30 @@ class WordSearchTests(unittest.TestCase):
         testFinder = wordFinder()
         self.assertTrue(testFinder)
 
-    def testWordFinderTestStringsGeneration(self):
+    def testForwardTestGridGeneration(self):
         testFinder = wordFinder()
-        testGrid = [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']]
+        testParser = inputParser()
+        testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
+        testLetters = testParser.generateWordSearchGrid()
 
-        self.assertEqual(testFinder.generateForwardHorizontal(testGrid), ['ABC', 'DEF', 'GHI'])
-        self.assertEqual(testFinder.generateBackwardHorizontal(testGrid), ['CBA', 'FED', 'IHG'])
-        self.assertEqual(testFinder.generateForwardVertical(testGrid), ['ADG', 'BEH', 'CFI'])
-        self.assertEqual(testFinder.generateBackwardVertical(testGrid), ['GDA', 'HEB', 'IFC'])
+        gridLetters = [[letter.char for letter in row] for row in testLetters]
+        gridPositions = [[letter.position for letter in row] for row in testLetters]
 
+        # this test is unnecessary -- the forward grid is just the regular grid == but imo it would look weird if it were missing.
+        self.assertEqual(gridLetters, [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']])
+        self.assertEqual(gridPositions, [[(0, 0), (0, 1), (0, 2)], [(1, 0), (1, 1), (1, 2)], [(2, 0), (2, 1), (2, 2)]])
+
+    def testBackwardTestGridGeneration(self):
+        testFinder = wordFinder()
+        testParser = inputParser()
+        testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
+        testLetters = testFinder.generateBackwardHorizontal(testParser.generateWordSearchGrid())
+
+        gridLetters = [[letter.char for letter in row] for row in testLetters]
+        gridPositions = [[letter.position for letter in row] for row in testLetters]
+
+        self.assertEqual(gridLetters, [['C', 'B', 'A'], ['F', 'E', 'D'], ['I', 'H', 'G']])
+        self.assertEqual(gridPositions, [[(0, 2), (0, 1), (0, 0)], [(1, 2), (1, 1), (1, 0)], [(2, 2), (2, 1), (2, 0)]])
 
 
 if __name__ == '__main__':

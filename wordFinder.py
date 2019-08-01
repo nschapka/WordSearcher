@@ -6,8 +6,7 @@ class wordFinder:
         return ["".join(row) for row in testGrid]
 
     def generateBackwardHorizontal(self, testGrid):
-        backwardGrid = [row[::-1] for row in testGrid]
-        return ["".join(row) for row in backwardGrid]
+        return [row[::-1] for row in testGrid]
 
     def generateForwardVertical(self, testGrid):
         # defining forward as top to bottom here
