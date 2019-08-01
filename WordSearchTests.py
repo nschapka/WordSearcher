@@ -173,6 +173,28 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(gridLetters, [['A'], ['D', 'B'], ['G', 'E', 'C'], ['H', 'F'], ['I']])
         self.assertEqual(gridPositions, [[(0, 0)], [(0, 1), (1, 0)], [(0, 2), (1, 1), (2, 0)], [(1, 2), (2, 1)], [(2, 2)]])
 
+    def testDownLeftDiagonalGridGeneration(self):
+        # defining this as top left to bottom right
+        testFinder = wordFinder()
+        testParser = inputParser()
+        testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
+        testLetters = testFinder.generateUpRightDiagonal(testParser.generateWordSearchGrid())
+
+        # this is just Up Right backwards, no need for another function.
+        testLetters = [row[::-1] for row in testLetters]
+
+        gridLetters = [[letter.char for letter in row] for row in testLetters]
+        gridPositions = [[letter.position for letter in row] for row in testLetters]
+
+        # ABC          A
+        # DEF  becomes BD
+        # GHI          CEG
+        #              FH
+        #              I
+
+        self.assertEqual(gridLetters, [['A'], ['B', 'D'], ['C', 'E', 'G'], ['F', 'H'], ['I']])
+        self.assertEqual(gridPositions, [[(0, 0)], [(1, 0), (0, 1)], [(2, 0), (1, 1), (0, 2)], [(2, 1), (1, 2)], [(2, 2)]])
+
 
 
 if __name__ == '__main__':
