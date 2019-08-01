@@ -135,7 +135,7 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(gridLetters, [['G', 'D', 'A'], ['H', 'E', 'B'], ['I', 'F', 'C']])
         self.assertEqual(gridPositions, [[(0, 2), (0, 1), (0, 0)], [(1, 2), (1, 1), (1, 0)], [(2, 2), (2, 1), (2, 0)]])
 
-    def testForwardRightDiagonalGridGeneration(self):
+    def testDownRightDiagonalGridGeneration(self):
         # defining this as top left to bottom right
         testFinder = wordFinder()
         testParser = inputParser()
@@ -153,6 +153,25 @@ class WordSearchTests(unittest.TestCase):
 
         self.assertEqual(gridLetters, [['C'], ['B', 'F'], ['A', 'E', 'I'], ['D', 'H'], ['G']])
         self.assertEqual(gridPositions, [[(2, 0)], [(1, 0), (2, 1)], [(0, 0), (1, 1), (2, 2)], [(0, 1), (1, 2)], [(0, 2)]])
+
+    def testUpRightDiagonalGridGeneration(self):
+        # defining this as top left to bottom right
+        testFinder = wordFinder()
+        testParser = inputParser()
+        testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
+        testLetters = testFinder.generateUpRightDiagonal(testParser.generateWordSearchGrid())
+
+        gridLetters = [[letter.char for letter in row] for row in testLetters]
+        gridPositions = [[letter.position for letter in row] for row in testLetters]
+
+        # ABC          A
+        # DEF  becomes DB
+        # GHI          GEC
+        #              HF
+        #              I
+
+        self.assertEqual(gridLetters, [['A'], ['D', 'B'], ['G', 'E', 'C'], ['H', 'F'], ['I']])
+        self.assertEqual(gridPositions, [[(0, 0)], [(0, 1), (1, 0)], [(0, 2), (1, 1), (2, 0)], [(1, 2), (2, 1)], [(2, 2)]])
 
 
 

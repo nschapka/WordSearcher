@@ -2,8 +2,12 @@ class wordFinder:
     def __init__(self):
         pass
 
-    def generateDiagPyramid(self, size):
-        coordArr = range(size)
+    def __generateDiagPyramid(self, size, backward):
+        if not backward:
+            coordArr = range(size)
+        else:
+            coordArr = range(size)[::-1]
+
         coords = []
 
         for x in range(size)[::-1]:
@@ -30,8 +34,18 @@ class wordFinder:
 
     def generateForwardRightDiagonal(self, testGrid):
         # forward right diagonal = top left to bottom right
-        xCoords = self.generateDiagPyramid(len(testGrid))
+        xCoords = self.__generateDiagPyramid(len(testGrid), False)
         yCoords = xCoords[::-1]
+
+        coords = [list(zip(xCoords[n], yCoords[n])) for n in range(len(xCoords))]
+
+        outputGrid = [[testGrid[num[1]][num[0]] for num in n] for n in coords]
+
+        return outputGrid
+
+    def generateUpRightDiagonal(self, testGrid):
+        yCoords = self.__generateDiagPyramid(len(testGrid), True)
+        xCoords = [row[::-1] for row in yCoords]
 
         coords = [list(zip(xCoords[n], yCoords[n])) for n in range(len(xCoords))]
 
