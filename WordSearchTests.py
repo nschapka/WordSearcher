@@ -139,7 +139,7 @@ class WordSearchTests(unittest.TestCase):
         # defining this as top left to bottom right
         testFinder = wordFinder()
         testParser = inputParser()
-        testParser.textToParse = ['and youre not so big', 'A,B,C', 'D,E,F', 'G,H,I']
+        testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
         testLetters = testFinder.generateForwardRightDiagonal(testParser.generateWordSearchGrid())
 
         gridLetters = [[letter.char for letter in row] for row in testLetters]
