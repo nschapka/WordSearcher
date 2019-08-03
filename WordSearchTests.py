@@ -1,8 +1,9 @@
 import unittest
-from inputReader import inputReader
-from inputParser import inputParser
-from wordFinder  import wordFinder
-from letter      import letter
+from inputReader     import inputReader
+from inputParser     import inputParser
+from gridReorienter  import gridReorienter
+from letter          import letter
+from wordFinder      import wordFinder
 
 class WordSearchTests(unittest.TestCase):
 
@@ -83,11 +84,11 @@ class WordSearchTests(unittest.TestCase):
     # ----------
 
     def testWordFinderInit(self):
-        testFinder = wordFinder()
-        self.assertTrue(testFinder)
+        testReorienter = gridReorienter()
+        self.assertTrue(testReorienter)
 
     def testForwardHorizontalGridGeneration(self):
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
         testLetters = testParser.generateWordSearchGrid()
@@ -100,10 +101,10 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(gridPositions, [[(0, 0), (1, 0), (2, 0)], [(0, 1), (1, 1), (2, 1)], [(0, 2), (1, 2), (2, 2)]])
 
     def testBackwardHorizontalGridGeneration(self):
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateBackwardHorizontal(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateBackwardHorizontal(testParser.generateWordSearchGrid())
 
         gridLetters = [[letter.char for letter in row] for row in testLetters]
         gridPositions = [[letter.position for letter in row] for row in testLetters]
@@ -112,10 +113,10 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(gridPositions, [[(2, 0), (1, 0), (0, 0)], [(2, 1), (1, 1), (0, 1)], [(2, 2), (1, 2), (0, 2)]])
 
     def testForwardVerticalGridGeneration(self):
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateForwardVertical(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateForwardVertical(testParser.generateWordSearchGrid())
 
         gridLetters = [[letter.char for letter in row] for row in testLetters]
         gridPositions = [[letter.position for letter in row] for row in testLetters]
@@ -124,10 +125,10 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(gridPositions, [[(0, 0), (0, 1), (0, 2)], [(1, 0), (1, 1), (1, 2)], [(2, 0), (2, 1), (2, 2)]])
 
     def testBackwardVerticalGridGeneration(self):
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['and youre not so big', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateBackwardVertical(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateBackwardVertical(testParser.generateWordSearchGrid())
 
         gridLetters = [[letter.char for letter in row] for row in testLetters]
         gridPositions = [[letter.position for letter in row] for row in testLetters]
@@ -137,10 +138,10 @@ class WordSearchTests(unittest.TestCase):
 
     def testDownRightDiagonalGridGeneration(self):
         # defining this as top left to bottom right
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateForwardRightDiagonal(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateForwardRightDiagonal(testParser.generateWordSearchGrid())
 
         gridLetters = [[letter.char for letter in row] for row in testLetters]
         gridPositions = [[letter.position for letter in row] for row in testLetters]
@@ -156,10 +157,10 @@ class WordSearchTests(unittest.TestCase):
 
     def testUpRightDiagonalGridGeneration(self):
         # defining this as top left to bottom right
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateUpRightDiagonal(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateUpRightDiagonal(testParser.generateWordSearchGrid())
 
         gridLetters = [[letter.char for letter in row] for row in testLetters]
         gridPositions = [[letter.position for letter in row] for row in testLetters]
@@ -175,10 +176,10 @@ class WordSearchTests(unittest.TestCase):
 
     def testDownLeftDiagonalGridGeneration(self):
         # defining this as top left to bottom right
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['youre not the boss of me now', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateUpRightDiagonal(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateUpRightDiagonal(testParser.generateWordSearchGrid())
 
         # this is just Up Right backwards, no need for another function.
         testLetters = [row[::-1] for row in testLetters]
@@ -197,10 +198,10 @@ class WordSearchTests(unittest.TestCase):
 
     def testUpLeftDiagonalGridGeneration(self):
         # defining this as top left to bottom right
-        testFinder = wordFinder()
+        testReorienter = gridReorienter()
         testParser = inputParser()
         testParser.textToParse = ['and youre not so big', 'A,B,C', 'D,E,F', 'G,H,I']
-        testLetters = testFinder.generateForwardRightDiagonal(testParser.generateWordSearchGrid())
+        testLetters = testReorienter.generateForwardRightDiagonal(testParser.generateWordSearchGrid())
 
         # this one is just the down right flipped horizontally, no need for another function.
         testLetters = [row[::-1] for row in testLetters]
@@ -216,6 +217,21 @@ class WordSearchTests(unittest.TestCase):
 
         self.assertEqual(gridLetters, [['C'], ['F', 'B'], ['I', 'E', 'A'], ['H', 'D'], ['G']])
         self.assertEqual(gridPositions, [[(2, 0)], [(2, 1), (1, 0)], [(2, 2), (1, 1), (0, 0)], [(1, 2), (0, 1)], [(0, 2)]])
+
+    def testWordFinderInstance(self):
+        testFinder = wordFinder()
+        self.assertTrue(testFinder)
+
+    def testWordFindsHorizontalWords(self):
+        testFinder = wordFinder()
+        testParser = inputParser()
+        testParser.textToParse = ['BC,DEF,HI', 'A,B,C', 'D,E,F', 'G,H,I']
+
+        targetWords = testParser.parseTargetWords()
+        testGrid = testParser.generateWordSearchGrid()
+
+        self.assertEqual(testFinder.findWords(testGrid, targetWords), [('BC', [(1, 0), (2, 0)]), ('DEF', [(0, 1), (1, 1), (2, 1)]), ('HI', [(1, 2), (2, 2)])])
+
 
 
 

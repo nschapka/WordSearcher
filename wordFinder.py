@@ -1,55 +1,31 @@
+import re
+from letter import letter
+
 class wordFinder:
     def __init__(self):
         pass
 
-    def __generateDiagPyramid(self, size, backward):
-        if not backward:
-            coordArr = range(size)
-        else:
-            coordArr = range(size)[::-1]
+    def __generateTestStrings(self, testGrid):
+        testStrings = []
+        for row in testGrid:
+            testStrings.append("".join([letter.char for letter in row]))
 
-        coords = []
+        return testStrings
 
-        for x in range(size)[::-1]:
-            coords.append(coordArr[x:])
-        for x in range(1, size)[::-1]:
-            coords.append(coordArr[:x])
+    def findWords(self, searchGrid, targetWords):
+        # the output takes the form of a list of tuples, composed of the found word and a list of letter coordinates
+        foundWords = []
+        testStrings = self.__generateTestStrings(searchGrid)
 
-        return coords
+        for target in targetWords:
+            for row in range(len(testStrings)):
+                match = re.search(target, testStrings[row])
+                if match:
+                    foundWords.append((target, [letter.position for letter in searchGrid[row][match.start():match.end()]]))
+                    break
 
-    def generateForwardHorizontal(self, testGrid):
-        return ["".join(row) for row in testGrid]
+        print(foundWords)
 
-    def generateBackwardHorizontal(self, testGrid):
-        return [row[::-1] for row in testGrid]
+        return foundWords
 
-    def generateForwardVertical(self, testGrid):
-        # defining forward as top to bottom here
-        return [[testGrid[row][col] for row in range(len(testGrid[0]))] for col in range(len(testGrid))]
-
-    def generateBackwardVertical(self, testGrid):
-        # bottom to top
-        verticalGrid = [[testGrid[row][col] for row in range(len(testGrid[0]))] for col in range(len(testGrid))]
-        return [row[::-1] for row in verticalGrid]
-
-    def generateForwardRightDiagonal(self, testGrid):
-        # forward right diagonal = top left to bottom right
-        xCoords = self.__generateDiagPyramid(len(testGrid), False)
-        yCoords = xCoords[::-1]
-
-        coords = [list(zip(xCoords[n], yCoords[n])) for n in range(len(xCoords))]
-
-        outputGrid = [[testGrid[num[1]][num[0]] for num in n] for n in coords]
-
-        return outputGrid
-
-    def generateUpRightDiagonal(self, testGrid):
-        yCoords = self.__generateDiagPyramid(len(testGrid), True)
-        xCoords = [row[::-1] for row in yCoords]
-
-        coords = [list(zip(xCoords[n], yCoords[n])) for n in range(len(xCoords))]
-
-        outputGrid = [[testGrid[num[1]][num[0]] for num in n] for n in coords]
-
-        return outputGrid
 
