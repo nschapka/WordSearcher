@@ -209,7 +209,7 @@ class WordSearchTests(unittest.TestCase):
         targetWords = self.testParser.parseTargetWords()
         testGrid = self.testParser.generateWordSearchGrid()
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('BC', [(1, 0), (2, 0)]), ('DEF', [(0, 1), (1, 1), (2, 1)]), ('HI', [(1, 2), (2, 2)])])
 
     def testWordFindsBackwardsWords(self):
@@ -219,7 +219,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testParser.generateWordSearchGrid()
         testGrid = self.testReorienter.generateBackwardHorizontal(testGrid)
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('ED', [(1, 1), (0, 1)]), ('IHG', [(2, 2), (1, 2), (0, 2)])])
 
     def testWordFindsVerticalDownWords(self):
@@ -229,7 +229,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testParser.generateWordSearchGrid()
         testGrid = self.testReorienter.generateForwardVertical(testGrid)
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('BE', [(1, 0), (1, 1)]), ('CFI', [(2, 0), (2, 1), (2, 2)])])
 
     def testWordFindsVerticalUpWords(self):
@@ -239,7 +239,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testParser.generateWordSearchGrid()
         testGrid = self.testReorienter.generateBackwardVertical(testGrid)
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('GD', [(0, 2), (0, 1)]), ('IF', [(2, 2), (2, 1)])])
 
     def testWordFindsDiagonalDownRightWords(self):
@@ -249,7 +249,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testParser.generateWordSearchGrid()
         testGrid = self.testReorienter.generateForwardRightDiagonal(testGrid)
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('BF', [(1, 0), (2, 1)]), ('DH', [(0, 1), (1, 2)])])
 
     def testWordFindsDiagonalUpRightWords(self):
@@ -259,7 +259,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testParser.generateWordSearchGrid()
         testGrid = self.testReorienter.generateUpRightDiagonal(testGrid)
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('DB', [(0, 1), (1, 0)]), ('HF', [(1, 2), (2, 1)])])
 
     def testWordsFindsDiagonalUpLeftWords(self):
@@ -270,7 +270,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testReorienter.generateForwardRightDiagonal(testGrid)
         testGrid = [row[::-1] for row in testGrid]
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('HD', [(1, 2), (0, 1)]), ('FB', [(2, 1), (1, 0)])])
 
     def testWordFindsDiagonalDownLeftWords(self):
@@ -281,7 +281,7 @@ class WordSearchTests(unittest.TestCase):
         testGrid = self.testReorienter.generateUpRightDiagonal(testGrid)
         testGrid = [row[::-1] for row in testGrid]
 
-        self.assertEqual(self.testFinder.findWords(testGrid, targetWords),
+        self.assertEqual([self.testFinder.findWords(testGrid, targetWord) for targetWord in targetWords],
                          [('BD', [(1, 0), (0, 1)]), ('CEG', [(2, 0), (1, 1), (0, 2)])])
 
 
