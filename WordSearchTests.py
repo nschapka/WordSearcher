@@ -298,6 +298,20 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(testFinder.findWords(testGrid, targetWords),
                          [('DB', [(0, 1), (1, 0)]), ('HF', [(1, 2), (2, 1)])])
 
+    def testWordsFindsDiagonalUpLeftWords(self):
+        testFinder = wordFinder()
+        testParser = inputParser()
+        testReorienter = gridReorienter()
+        testParser.textToParse = ['HD,FB', 'A,B,C', 'D,E,F', 'G,H,I']
+
+        targetWords = testParser.parseTargetWords()
+        testGrid = testParser.generateWordSearchGrid()
+        testGrid = testReorienter.generateForwardRightDiagonal(testGrid)
+        testGrid = [row[::-1] for row in testGrid]
+
+        self.assertEqual(testFinder.findWords(testGrid, targetWords),
+                         [('HD', [(1, 2), (0, 1)]), ('FB', [(2, 1), (1, 0)])])
+
 
 if __name__ == '__main__':
     unittest.main()
