@@ -11,6 +11,7 @@ def wordSearchMain():
     reorienter = gridReorienter()
     finder = wordFinder()
     searchGrids = []
+    foundWords = []
 
     # parse the input text and generate the first grid
     parser.textToParse = reader.readText(inputFile)
@@ -27,7 +28,16 @@ def wordSearchMain():
     searchGrids.append(reorienter.generateForwardRightDiagonal(baseGrid)[::-1])  # up left diagonal
     searchGrids.append(reorienter.generateUpRightDiagonal(baseGrid)[::-1])  # down left diagonal
 
+    # search for words
+    for target in targetWords:
+        for grid in searchGrids:
+            foundWord = finder.findWords(grid, target)
+            if foundWord:
+                foundWords.append(foundWord)
+                foundWord = None
+                break
 
+    print(foundWords)
 
 
 

@@ -14,7 +14,7 @@ class wordFinder:
 
     def findWords(self, searchGrid, targetWord):
         # the output takes the form of a list of tuples, composed of the found word and a list of letter coordinates
-        foundWords = []
+        foundWord = None
         testStrings = self.__generateTestStrings(searchGrid)
 
 
