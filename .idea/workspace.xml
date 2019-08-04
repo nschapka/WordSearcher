@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb2817a6-c70f-4a02-91fb-c77bd82a8cb9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WordSearchTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/WordSearchTests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WordSearchTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="298" column="39" selection-start-line="298" selection-start-column="39" selection-end-line="298" selection-end-column="39" />
+            <state relative-caret-position="734">
+              <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -210,13 +211,13 @@
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.123222746" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.11987041" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.11987041" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32721382" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.32829374" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.22138229" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.22138229" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -274,8 +275,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WordSearchTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="298" column="39" selection-start-line="298" selection-start-column="39" selection-end-line="298" selection-end-column="39" />
+        <state relative-caret-position="734">
+          <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
