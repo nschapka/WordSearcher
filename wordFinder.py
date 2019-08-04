@@ -21,10 +21,9 @@ class wordFinder:
             for row in range(len(testStrings)):
                 match = re.search(target, testStrings[row])
                 if match:
+                    # collate the target word with the positions of its letters, sliced from the search grid with the regex match bounds
                     foundWords.append((target, [letter.position for letter in searchGrid[row][match.start():match.end()]]))
                     break
-
-        print(foundWords)
 
         return foundWords
 

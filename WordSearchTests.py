@@ -230,9 +230,21 @@ class WordSearchTests(unittest.TestCase):
         targetWords = testParser.parseTargetWords()
         testGrid = testParser.generateWordSearchGrid()
 
-        self.assertEqual(testFinder.findWords(testGrid, targetWords), [('BC', [(1, 0), (2, 0)]), ('DEF', [(0, 1), (1, 1), (2, 1)]), ('HI', [(1, 2), (2, 2)])])
+        self.assertEqual(testFinder.findWords(testGrid, targetWords),
+                         [('BC', [(1, 0), (2, 0)]), ('DEF', [(0, 1), (1, 1), (2, 1)]), ('HI', [(1, 2), (2, 2)])])
 
+    def testWordDFindsBackwardsWords(self):
+        testFinder = wordFinder()
+        testParser = inputParser()
+        testReorienter = gridReorienter()
+        testParser.textToParse = ['ED,IHG', 'A,B,C', 'D,E,F', 'G,H,I']
 
+        targetWords = testParser.parseTargetWords()
+        testGrid = testParser.generateWordSearchGrid()
+        testGrid = testReorienter.generateBackwardHorizontal(testGrid)
+
+        self.assertEqual(testFinder.findWords(testGrid, targetWords),
+                         [('ED', [(1, 1), (0, 1)]), ('IHG', [(2, 2), (1, 2), (0, 2)])])
 
 
 if __name__ == '__main__':
