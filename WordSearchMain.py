@@ -5,7 +5,7 @@ from gridReorienter import gridReorienter
 from wordFinder import wordFinder
 
 def wordSearchMain():
-    reader = inputReader('C://users/nschapka/desktop/input.txt')
+    reader = inputReader('C://users/nschapka/desktop/input2.txt')
     inputFile = open(reader.filePath)
     parser = inputParser()
     reorienter = gridReorienter()
@@ -25,8 +25,8 @@ def wordSearchMain():
     searchGrids.append(reorienter.generateBackwardVertical(baseGrid))
     searchGrids.append(reorienter.generateForwardRightDiagonal(baseGrid))
     searchGrids.append(reorienter.generateUpRightDiagonal(baseGrid))
-    searchGrids.append(reorienter.generateForwardRightDiagonal(baseGrid)[::-1])  # up left diagonal
-    searchGrids.append(reorienter.generateUpRightDiagonal(baseGrid)[::-1])  # down left diagonal
+    searchGrids.append([row[::-1] for row in reorienter.generateForwardRightDiagonal(baseGrid)])  # up left diagonal
+    searchGrids.append([row[::-1] for row in reorienter.generateUpRightDiagonal(baseGrid)])  # down left diagonal
 
     # search for words
     for target in targetWords:
@@ -37,7 +37,11 @@ def wordSearchMain():
                 foundWord = None
                 break
 
-    print(foundWords)
+    print(targetWords)
+
+    for word in foundWords:
+        print(word)
+
 
 
 
