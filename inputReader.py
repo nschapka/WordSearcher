@@ -6,6 +6,9 @@ class inputReader:
     def readText(self, file):
         self.inputText = []
         for line in file:
-            self.inputText.append(line)
+            self.inputText.append(line.strip())
+
+        if len(self.inputText) < 3:
+            raise ValueError('input text not long enough - need at least a line of target words and a 2x2 grid')
 
         return self.inputText

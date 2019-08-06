@@ -37,13 +37,8 @@ def wordSearchMain():
                 foundWord = None
                 break
 
-    print(targetWords)
-
     for word in foundWords:
         print(word)
-
-
-
 
 if __name__ == '__main__':
     wordSearchMain()

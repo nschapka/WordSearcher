@@ -68,6 +68,18 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(gridLetters, [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']])
         self.assertEqual(gridPositions, [[(0, 0), (1, 0), (2, 0)], [(0, 1), (1, 1), (2, 1)], [(0, 2), (1, 2), (2, 2)]])
 
+    def testInputParserFaultsOnNoTargetWords(self):
+        self.testParser.textToParse = ['', 'A,B', 'C,D']
+
+        with self.assertRaises(ValueError):
+            self.testParser.parseTargetWords()
+
+    def testInputParserFaultsOnRectangularGrid(self):
+        self.testParser.textToParse = ['test', 'A,B', 'C,D', 'E,F']
+
+        with self.assertRaises(ValueError):
+            self.testParser.generateWordSearchGrid()
+
     # ------
     # letter
     # ------
