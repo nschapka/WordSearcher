@@ -80,6 +80,12 @@ class WordSearchTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.testParser.generateWordSearchGrid()
 
+    def testInputParserFaultsOnMultiLetterGridSpace(self):
+        self.testParser.textToParse = ['test', 'AB,C', 'D,E', 'F,G']
+
+        with self.assertRaises(ValueError):
+            self.testParser.generateWordSearchGrid()
+
     # ------
     # letter
     # ------
