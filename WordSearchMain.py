@@ -5,7 +5,7 @@ from gridReorienter import gridReorienter
 from wordFinder import wordFinder
 
 def wordSearchMain():
-    reader = inputReader('C://users/nschapka/desktop/input2.txt')
+    reader = inputReader('C://users/nschapka/desktop/input.txt')
     inputFile = open(reader.filePath)
     parser = inputParser()
     reorienter = gridReorienter()
@@ -38,7 +38,9 @@ def wordSearchMain():
                 break
 
     for word in foundWords:
-        print(word)
+        outputString = word[0] + ": "
+        outputString += word[1].__str__()
+        print(outputString)
 
 if __name__ == '__main__':
     wordSearchMain()
