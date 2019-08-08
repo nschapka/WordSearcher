@@ -13,14 +13,14 @@ class wordFinder:
         return testStrings
 
     def findWords(self, searchGrid, targetWord):
-        # the output takes the form of a list of tuples, composed of the found word and a list of letter coordinates
+        # the output takes the form of a list of a tuple, composed of the found word and a list of letter coordinates
         foundWord = None
         testStrings = self.__generateTestStrings(searchGrid)
 
         for row in range(len(testStrings)):
             match = re.search(targetWord, testStrings[row])
             if match:
-                # collate the target word with the positions of its letters, sliced from the search grid with the regex match bounds
+                # collate the target word with the positions of its letters, sliced from the search grid
                 foundWord = (targetWord, [letter.position for letter in searchGrid[row][match.start():match.end()]])
                 break
 

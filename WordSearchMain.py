@@ -40,7 +40,8 @@ def wordSearchMain(filePath):
 
     for word in foundWords:
         outputString = word[0] + ": "
-        outputString += word[1].__str__()
+        for coordinate in word[1]:
+            outputString += "(" + coordinate[0].__str__() + "," + coordinate[1].__str__() + ")"
         print(outputString)
 
 

@@ -17,6 +17,7 @@ class inputParser:
     def generateWordSearchGrid(self):
         wordSearchGrid = [str.split(line, ',') for line in (self.textToParse[1:])]
         size = len(self.textToParse) - 1
+
         if len(wordSearchGrid) != len(wordSearchGrid[-1]):
             raise ValueError('word search grid is not a square')
         for row in wordSearchGrid:

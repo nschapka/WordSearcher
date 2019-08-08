@@ -48,6 +48,7 @@ class gridReorienter:
         return outputGrid
 
     def generateUpRightDiagonal(self, testGrid):
+        # bottom left to top right
         yCoords = self.__generateDiagPyramid(len(testGrid), True)
         xCoords = [row[::-1] for row in yCoords]
 
