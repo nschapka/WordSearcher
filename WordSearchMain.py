@@ -1,11 +1,12 @@
+import sys
 from letter import letter
 from inputReader import inputReader
 from inputParser import inputParser
 from gridReorienter import gridReorienter
 from wordFinder import wordFinder
 
-def wordSearchMain():
-    reader = inputReader('C://users/nschapka/desktop/input.txt')
+def wordSearchMain(filePath):
+    reader = inputReader(filePath)
     inputFile = open(reader.filePath)
     parser = inputParser()
     reorienter = gridReorienter()
@@ -42,5 +43,10 @@ def wordSearchMain():
         outputString += word[1].__str__()
         print(outputString)
 
+
 if __name__ == '__main__':
-    wordSearchMain()
+    if len(sys.argv) == 2:
+        filePath = sys.argv[1]
+        wordSearchMain(filePath)
+    else:
+        raise SyntaxError('no target file path given')

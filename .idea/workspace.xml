@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb2817a6-c70f-4a02-91fb-c77bd82a8cb9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WordSearchMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/WordSearchMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordSearchTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/WordSearchTests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +17,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WordSearchMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+            <state relative-caret-position="616">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -28,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/inputReader.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -45,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WordSearchTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="305" column="26" lean-forward="true" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
+            <state relative-caret-position="565">
+              <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -69,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gridReorienter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-346">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -108,8 +110,8 @@
         <option value="$PROJECT_DIR$/letter.py" />
         <option value="$PROJECT_DIR$/gridReorienter.py" />
         <option value="$PROJECT_DIR$/wordFinder.py" />
-        <option value="$PROJECT_DIR$/inputReader.py" />
         <option value="$PROJECT_DIR$/inputParser.py" />
+        <option value="$PROJECT_DIR$/inputReader.py" />
         <option value="$PROJECT_DIR$/WordSearchTests.py" />
         <option value="$PROJECT_DIR$/WordSearchMain.py" />
       </list>
@@ -137,7 +139,16 @@
             <path>
               <item name="WordSearcher" type="b2602c69:ProjectViewProjectNode" />
               <item name="WordSearcher" type="462c0819:PsiDirectoryNode" />
-              <item name="WordSearcher" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WordSearcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="WordSearcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 (WordSearcher) &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -265,10 +276,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gridReorienter.py">
+    <entry file="jar://$PROJECT_DIR$/venv/Lib/site-packages/setuptools-40.8.0-py3.7.egg!/easy_install.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/easy-install.pth">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Scripts/easy_install-3.7-script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-346">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        <state relative-caret-position="170">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -282,6 +299,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gridReorienter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inputParser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -292,14 +316,14 @@
     <entry file="file://$PROJECT_DIR$/inputReader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WordSearchTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="305" column="26" lean-forward="true" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
+        <state relative-caret-position="565">
+          <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -308,10 +332,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WordSearchMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+        <state relative-caret-position="616">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

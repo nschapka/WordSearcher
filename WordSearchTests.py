@@ -1,4 +1,5 @@
 import unittest
+import sys
 from inputReader     import inputReader
 from inputParser     import inputParser
 from gridReorienter  import gridReorienter
@@ -7,8 +8,10 @@ from wordFinder      import wordFinder
 
 class WordSearchTests(unittest.TestCase):
 
+    testFile = ''
+
     def setUp(self):
-        self.testReader = inputReader('C://users/nschapka/desktop/input.txt')
+        self.testReader = inputReader(self.testFile)
         self.fileObject = open(self.testReader.filePath)
         self.testParser = inputParser()
         self.testReorienter = gridReorienter()
@@ -22,7 +25,7 @@ class WordSearchTests(unittest.TestCase):
     # -----------
 
     def testInputReaderInit(self):
-        self.assertEqual(self.testReader.filePath, 'C://users/nschapka/desktop/input.txt')
+        self.assertEqual(self.testReader.filePath, self.testFile)
 
     def testInputReaderFindsFile(self):
         try:
@@ -304,4 +307,6 @@ class WordSearchTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        WordSearchTests.testFile = sys.argv.pop()
     unittest.main()
