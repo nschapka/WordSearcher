@@ -42,6 +42,8 @@ def wordSearchMain(filePath):
         outputString = word[0] + ": "
         for coordinate in word[1]:
             outputString += "(" + coordinate[0].__str__() + "," + coordinate[1].__str__() + ")"
+            if coordinate != word[1][-1]:
+                outputString += ","
         print(outputString)
 
 
