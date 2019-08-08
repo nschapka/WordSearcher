@@ -24,9 +24,6 @@ class gridReorienter:
 
         return coords
 
-    def generateForwardHorizontal(self, testGrid):
-        return ["".join(row) for row in testGrid]
-
     def generateBackwardHorizontal(self, testGrid):
         return [row[::-1] for row in testGrid]
 

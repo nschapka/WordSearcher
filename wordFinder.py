@@ -17,7 +17,6 @@ class wordFinder:
         foundWord = None
         testStrings = self.__generateTestStrings(searchGrid)
 
-
         for row in range(len(testStrings)):
             match = re.search(targetWord, testStrings[row])
             if match:
