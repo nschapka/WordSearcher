@@ -106,9 +106,9 @@ class WordSearchTests(unittest.TestCase):
         self.assertEqual(testLetter.char, 'a')
         self.assertEqual(testLetter.position, (1, 0))
 
-    # ----------
-    # wordFinder
-    # ----------
+    # --------------
+    # gridReorienter
+    # --------------
 
     def testWordFinderInit(self):
         self.assertTrue(self.testReorienter)
@@ -298,6 +298,10 @@ class WordSearchTests(unittest.TestCase):
                                          [(2, 2), (1, 1), (0, 0)],
                                          [(1, 2), (0, 1)],
                                          [(0, 2)]])
+
+    # ----------
+    # wordFinder
+    # ----------
 
     def testWordFinderInstance(self):
         testFinder = wordFinder()
